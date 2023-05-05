@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webStart": "webpack"
+    "start": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
     "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2",
+    "webpack-cli": "^4.10",
     "webpack-dev-server": "^4.7.4"
   }
 }
