@@ -1,7 +1,12 @@
-import React from "react";
 import { render } from "react-dom";
+import { Counter } from "./components/Counter";
 
-render (
-    <div>Some text here</div>,
-    document.getElementById('root')
-)
+render(
+  <div>
+    Counter Component
+    <div>
+      <Counter />
+    </div>
+  </div>,
+  document.getElementById("root")
+);
