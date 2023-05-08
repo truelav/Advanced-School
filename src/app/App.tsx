@@ -11,11 +11,6 @@ export default function App() {
     <>
       <div className={classNames("app", {}, [theme])}>
         <Navbar />
-        <div>
-          <button onClick={toggleTheme}>
-            Switch to {theme === "light" ? "Dark" : "Light"} Theme
-          </button>
-        </div>
         <AppRouter />
       </div>
     </>
