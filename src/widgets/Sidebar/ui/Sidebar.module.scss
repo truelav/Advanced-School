@@ -3,8 +3,17 @@
     background:var(--bg-dark-color);
     width: var(--sidebar-width);
     position: relative;
+    transition: width 0.3s ease-in-out;
 }
 
 .collapsed {
     width: var(--sidebar-width-collapsed)
+}
+
+.switchers {
+    position: absolute;
+    bottom: 20px;
+    left: 20px
+    // display: flex;
+    // justify-content: center;
 }
