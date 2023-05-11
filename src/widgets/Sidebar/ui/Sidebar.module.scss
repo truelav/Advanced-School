@@ -1,9 +1,10 @@
-.Sidebar {
+.sidebar {
     height: calc(100vh - var(--navbar-height));
-    width: 300px;
     background:var(--bg-dark-color);
+    width: var(--sidebar-width);
+    position: relative;
 }
 
 .collapsed {
-    position: relative;
+    width: var(--sidebar-width-collapsed)
 }

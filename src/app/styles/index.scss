@@ -12,8 +12,16 @@ a {
 
   background: var(--bg-color);
   color: var(--font-primary-color);
-
   min-height: 100vh;
+}
+
+.page-content {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
 }
 
 .theme-icon,
