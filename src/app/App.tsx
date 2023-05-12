@@ -5,7 +5,6 @@ import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 import "./styles/index.scss";
 
-
 export default function App() {
   const { theme, toggleTheme } = useTheme();
   return (
