@@ -38,7 +38,8 @@ export default {
   rootDir: "../../",
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+  // testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+  testMatch: ["<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"],
 
   // A list of paths to directories that Jest should use to search for files in
   //roots: ["<rootDir>"],
