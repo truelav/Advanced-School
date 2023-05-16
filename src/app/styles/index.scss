@@ -3,29 +3,18 @@
 @import "themes/normal";
 @import "themes/dark";
 
-a {
-  color: var(--font-primary-color);
-}
-
 .app {
-  font: var(--font-m);
-
-  background: var(--bg-color);
-  color: var(--font-primary-color);
-  min-height: 100vh;
+    font: var(--font-m);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
 }
 
-.page-content {
-  display: flex;
+.content-page {
+    display: flex;
 }
 
 .page-wrapper {
-  flex-grow: 1;
-  padding: 20px;
-}
-
-.theme-icon,
-svg {
-  width: 50px;
-  height: 50px;
+    flex-grow: 1;
+    padding: 20px;
 }
