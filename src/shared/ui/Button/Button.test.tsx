@@ -1,15 +1,15 @@
-import { render, screen } from "@testing-library/react";
-import { Button } from "shared/ui/Button/Button";
+import { render, screen } from '@testing-library/react';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
-describe("Button Component", () => {
-  test("renders button component", () => {
-    render(<Button>Test</Button>);
-    expect(screen.getByTestId("themeButton")).toBeInTheDocument();
-  });
+describe('Button', () => {
+    test('Test render', () => {
+        render(<Button>TEST</Button>);
+        expect(screen.getByText('TEST')).toBeInTheDocument();
+    });
 
-  test("renders button with correct children name", () => {
-    const label = "Click me";
-    render(<Button>{label}</Button>);
-    expect(screen.getByText("Click me")).toBeInTheDocument();
-  });
+    test('Test clear theme', () => {
+        render(<Button theme={ThemeButton.CLEAR}>TEST</Button>);
+        expect(screen.getByText('TEST')).toHaveClass('clear');
+        screen.debug();
+    });
 });
