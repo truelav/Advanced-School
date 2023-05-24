@@ -17,7 +17,9 @@ function App() {
             <Suspense fallback="">
                 <Navbar />
                 <button onClick={() => setIsOpen(true)}>Toggle</button>
-                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
+                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam alias a reiciendis inventore nostrum.
+                </Modal >
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
