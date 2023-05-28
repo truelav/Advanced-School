@@ -56,7 +56,7 @@ export const Modal = (props: ModalProps) => {
       clearTimeout(timeRef.current);
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [isOpen, onKeyDown]);
+  }, [isOpen]);
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -69,7 +69,7 @@ export const Modal = (props: ModalProps) => {
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}
-            <button onClick={closeHandler}>Close</button>
+            <button> Close</button>
           </div>
         </div>
       </div>
