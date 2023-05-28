@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-
+import { Portal } from "../Portal/Portal";
 import cls from "./Modal.module.scss";
 
 interface ModalProps {
@@ -56,7 +56,7 @@ export const Modal = (props: ModalProps) => {
       clearTimeout(timeRef.current);
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onKeyDown]);
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -64,13 +64,15 @@ export const Modal = (props: ModalProps) => {
   };
 
   return (
-    <div className={classNames(cls.Modal, mods, [className])}>
-      <div className={cls.overlay} onClick={closeHandler}>
-        <div className={cls.content} onClick={onContentClick}>
-          {children}
-          <button onClick={closeHandler}>Close</button>
+    <Portal>
+      <div className={classNames(cls.Modal, mods, [className])}>
+        <div className={cls.overlay} onClick={closeHandler}>
+          <div className={cls.content} onClick={onContentClick}>
+            {children}
+            <button onClick={closeHandler}>Close</button>
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   );
 };
