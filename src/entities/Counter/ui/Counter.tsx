@@ -22,10 +22,14 @@ export const Counter = () => {
     dispatch(counterActions.decrement());
   };
   return (
-    <div>
-      <h1>{counterValue}</h1>
-      <Button onClick={increment}>Increment</Button>
-      <Button onClick={decrement}>Decrement</Button>
+    <div data-testid="counter">
+      <h1 data-testid="value-title">{counterValue}</h1>
+      <Button onClick={increment} data-testid="increment-button">
+        Increment
+      </Button>
+      <Button onClick={decrement} data-testid="decrement-button">
+        Decrement
+      </Button>
     </div>
   );
 };
