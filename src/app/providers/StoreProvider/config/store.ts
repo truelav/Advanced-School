@@ -7,15 +7,15 @@ import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
 import { StateSchema } from "./StateSchema";
 import { createReducerManager } from "./reducerManager";
-import {
-  curryGetDefaultMiddleware,
-  getDefaultMiddleware,
-} from "@reduxjs/toolkit/dist/getDefaultMiddleware";
+import { getDefaultMiddleware,} from "@reduxjs/toolkit/dist/getDefaultMiddleware";
 import { $api } from "shared/api/api";
+import {To} from 'history';
+import { NavigateOptions } from "react-router-dom";
 
 export function createReduxStore(
   initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>
+  asyncReducers?: ReducersMapObject<StateSchema>,
+  navigate?: (to: To, options?: NavigateOptions) => void
 ) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -34,6 +34,7 @@ export function createReduxStore(
         thunk: {
           extraArgument: {
             api: $api,
+            navigate
           },
         },
       }),
