@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig, ThunkExtraArg } from "app/providers/StoreProvider";
+import { ThunkConfig } from "app/providers/StoreProvider";
 import { User, userActions } from "entities/User";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 
@@ -18,10 +18,7 @@ export const loginByUsername = createAsyncThunk<
     try {
       // const response = await axios.post<User>('http://localhost:8000/login', authData);
 
-      const response = await extra.api.post<User>(
-        "/login",
-        authData
-      );
+      const response = await extra.api.post<User>("/login", authData);
 
       if (!response.data) {
         throw new Error();
@@ -34,7 +31,7 @@ export const loginByUsername = createAsyncThunk<
 
       dispatch(userActions.setAuthData(response.data));
 
-      extra.navigate('/about')
+      extra.navigate("/about");
 
       return response.data;
     } catch (e) {
