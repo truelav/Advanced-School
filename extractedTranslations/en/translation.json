@@ -1,10 +1,12 @@
 {
+  "An error has occured": "An error has occured",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
       "": ""
     }
   },
   "PROFILE PAGE": "",
+  "Try refreshing the page": "Try refreshing the page",
   "decrement": "decrement",
   "increment": "increment",
   "throw error": "throw error",
