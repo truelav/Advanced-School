@@ -6,6 +6,7 @@ import { Input } from "shared/ui/Input/Input";
 import cls from "./ProfileCard.module.scss";
 import { Profile } from "../../model/types/profile";
 import { Loader } from "shared/ui/Loader/Loader";
+import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader";
 
 interface ProfileCardProps {
   className?: string;
@@ -45,12 +46,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <div className={cls.header}>
-        <Text title={t("Профиль")} />
-        <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE}>
-          {t("Редактировать")}
-        </Button>
-      </div>
       <div className={cls.data}>
         <Input
           value={data?.first}
