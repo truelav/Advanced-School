@@ -22,6 +22,7 @@ import { Country } from "entities/Country";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { getProfileValidateErrors } from "entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { ValidateProfileError } from "entities/Profile/model/types/profile";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -32,13 +33,17 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("profile");
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t(""),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
