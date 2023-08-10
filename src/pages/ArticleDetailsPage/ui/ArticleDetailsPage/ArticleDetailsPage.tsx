@@ -1,4 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
+import { memo } from "react";
 import cls from "./ArticleDetailsPage.module.scss";
 
 interface ArticleDetailsPageProps {
@@ -10,9 +11,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-      Articles Page
+      Article Details Page
     </div>
   );
 };
 
-export default ArticleDetailsPage;
+export default memo(ArticleDetailsPage);
