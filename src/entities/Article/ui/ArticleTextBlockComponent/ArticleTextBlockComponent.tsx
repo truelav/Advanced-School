@@ -1,16 +1,16 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from './ArticleDetails.scss'
+import cls from './ArticleTextBlockComponent.scss'
 
-interface ArticleDetailsProps {
+interface ArticleTextBlockComponent {
     className?: string;
 }
 
-export const ArticleDetails = (props: ArticleDetailsProps) => {
+export const ArticleDetails = (props: ArticleTextBlockComponent) => {
     const {className} = props
 
     return (
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            Article Details
+            Article Text Block Component
         </div>
     )
 }
