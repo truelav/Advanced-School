@@ -15,7 +15,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     const {className} = props
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
+        <DynamicModuleLoader reducers={reducers } removeAfterUnmount={true}>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 Article Details
             </div>
