@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./ArticleDetails.scss";
+import cls from "./ArticleCodeBlockComponent.module.scss";
 
 interface ArticleCodeBlockComponent {
   className?: string;
