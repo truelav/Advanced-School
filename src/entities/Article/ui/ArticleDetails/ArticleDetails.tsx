@@ -14,13 +14,13 @@ import EyeIcon from "shared/assets/icons/eye-20-20.svg";
 import CalendarIcon from "shared/assets/icons/calendar-20-20.svg";
 import { Icon } from "shared/ui/Icon/Icon";
 import { ArticleCodeBlockComponent } from "entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent";
-import { ArticleImageBlockComponent } from "../ArticleImageBlockComponents/ArticleImageBlockComponent";
+import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { fetchArticleById } from "entities/Article/model/services/fetchArticleById";
+import { fetchArticleById } from "entities/Article/model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import cls from "./ArticleDetails.module.scss";
 import {
-  getArticleDetails,
+  getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from "../../model/selectors/articleDetails";
@@ -40,7 +40,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
-  const article = useSelector(getArticleDetails);
+  const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
   const renderBlock = useCallback((block: ArticleBlock) => {
@@ -49,7 +49,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         return (
           <ArticleCodeBlockComponent
             key={block.id}
-            // block={block}
+            block={block}
             className={cls.block}
           />
         );
@@ -57,7 +57,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         return (
           <ArticleImageBlockComponent
             key={block.id}
-            // block={block}
+            block={block}
             className={cls.block}
           />
         );
@@ -66,7 +66,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
           <ArticleTextBlockComponent
             key={block.id}
             className={cls.block}
-            // block={block}
+            block={block}
           />
         );
       default:
@@ -78,6 +78,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     // if (__PROJECT__ !== "storybook") {
     // }
     dispatch(fetchArticleById(id));
+    console.log(article);
   }, [dispatch, id]);
 
   let content;
