@@ -1,16 +1,19 @@
+import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from './ArticleTextBlockComponent.scss'
+import cls from "./ArticleTextBlockComponent.scss";
 
 interface ArticleTextBlockComponent {
-    className?: string;
+  className?: string;
 }
 
-export const ArticleDetails = (props: ArticleTextBlockComponent) => {
-    const {className} = props
+export const ArticleTextBlockComponent = memo(
+  (props: ArticleTextBlockComponent) => {
+    const { className } = props;
 
     return (
-        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            Article Text Block Component
-        </div>
-    )
-}
+      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        Article Text Block Component
+      </div>
+    );
+  }
+);

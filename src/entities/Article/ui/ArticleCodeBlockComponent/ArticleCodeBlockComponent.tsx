@@ -1,16 +1,16 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from './ArticleDetails.scss'
+import cls from "./ArticleDetails.scss";
 
 interface ArticleCodeBlockComponent {
-    className?: string;
+  className?: string;
 }
 
-export const ArticleDetails = (props: ArticleCodeBlockComponent) => {
-    const {className} = props
+export const ArticleCodeBlockComponent = (props: ArticleCodeBlockComponent) => {
+  const { className } = props;
 
-    return (
-        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            Article Code Block Component
-        </div>
-    )
-}
+  return (
+    <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      Article Code Block Component
+    </div>
+  );
+};
