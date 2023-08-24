@@ -26,7 +26,7 @@ const article: Article = {
     type: [ArticleType.IT],
     blocks: [
         {
-            id: '2',
+            id: '1',
             type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
