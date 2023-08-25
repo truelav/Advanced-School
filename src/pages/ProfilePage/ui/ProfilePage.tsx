@@ -23,6 +23,8 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { getProfileValidateErrors } from "entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
+import { useInitialEffect } from "shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect";
+import { useParams } from "react-router-dom";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -34,6 +36,7 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation("profile");
+  const { id } = useParams<{ id: string }>()
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -45,9 +48,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     [ValidateProfileError.SERVER_ERROR]: t(""),
   };
 
-  useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+  useInitialEffect(() => {
+    if(id){
+      dispatch(fetchProfileData(id));
+    }
+  })
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
