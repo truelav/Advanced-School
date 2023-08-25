@@ -15,7 +15,7 @@ export interface AddCommentFormProps {
     onSendComment: (text: string) => void;
 }
 
-const reducers: ReducersList = {
+const reducers: ReducersList = { 
     addCommentForm: addCommentFormReducer,
 };
 

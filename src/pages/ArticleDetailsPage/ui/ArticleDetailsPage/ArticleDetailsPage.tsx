@@ -18,6 +18,7 @@ import {
   getArticleComments,
 } from "../../model/slices/articleDetailsCommentsSlice";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
+import { AddCommentForm } from "features/addCommentForm";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -52,6 +53,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t("Комментарии")} />
+        <AddCommentForm onSendComment={() => 'some text here'}/>
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

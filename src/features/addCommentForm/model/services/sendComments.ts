@@ -1,0 +1,1 @@
+import { ThunkConfig } from "app/providers/StoreProvider";
