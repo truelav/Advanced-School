@@ -37,8 +37,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-  const onSendComment = useCallback(() => {
-    dispatch(addCommentForArticle());
+  const onSendComment = useCallback((text) => {
+    dispatch(addCommentForArticle(text));
   }, []);
 
   useInitialEffect(() => {

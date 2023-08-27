@@ -9,13 +9,12 @@ import { fetchCommentsByArticleId } from "../fetchCommentsByArticleId/fetchComme
 
 export const addCommentForArticle = createAsyncThunk<
   Comment,
-  void,
+  string,
   ThunkConfig<string>
->("addCommentForm/addCommentForArticle", async (_, thunkApi) => {
+>("addCommentForm/addCommentForArticle", async (text, thunkApi) => {
   const { extra, rejectWithValue, getState, dispatch } = thunkApi;
 
   const userData = getUserAuthData(getState());
-  const text = getAddCommentFormText(getState());
   const article = getArticleDetailsData(getState());
 
   if (!userData || !text || !article) {
@@ -33,7 +32,6 @@ export const addCommentForArticle = createAsyncThunk<
       throw new Error();
     }
 
-    dispatch(addCommentFormActions.setText(""));
     dispatch(fetchCommentsByArticleId(article.id));
 
     return response.data;
