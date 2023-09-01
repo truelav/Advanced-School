@@ -29,8 +29,9 @@ export const CommentList = memo((props: CommentListProps) => {
   return (
     <div className={classNames(cls.CommentList, {}, [className])}>
       {comments?.length ? (
-        comments.map((comment) => (
+        comments.map((comment, idx) => (
           <CommentCard
+            key={idx + '0'}
             isLoading={isLoading}
             className={cls.comment}
             comment={comment}
