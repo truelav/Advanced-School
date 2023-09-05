@@ -16,10 +16,12 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
+import { ScrollPositionSchema } from "features/saveScrollPosition";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollPosition: ScrollPositionSchema;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
@@ -27,7 +29,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
-  articlesPage: ArticlesPageSchema
+  articlesPage: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
